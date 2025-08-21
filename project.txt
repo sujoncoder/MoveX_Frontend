@@ -1,0 +1,29 @@
+👩‍💻 PROJECT OVERVIEW 👩‍💻
+
+🥬 Tech and pakages
+    - Typescript
+    - Redux toolkit
+    - Sonner
+    - Lucid icons
+    - Icons8
+    - Zod
+    - React hook form
+    - Frammermotion
+    - React tour
+    - React skeleton
+
+
+📟 Pages
+    - Home page
+    - About page
+    - Contact page
+    - Parcel trackin page
+    - Register page
+    - Login page
+
+🪶 Components / Features
+    - Navbar
+    - Hero section
+    - QA section
+    - Subscribe
+    - Footer
