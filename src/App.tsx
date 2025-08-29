@@ -1,13 +1,20 @@
-import Logo from "./shared/Logo"
-
+import CTA from "./components/home/CTA"
+import FAQ from "./components/home/FAQ"
+import Hero from "./components/home/HeroText"
+import OurService from "./components/home/OurService"
+import Services from "./components/home/Services"
+import Stats from "./components/home/Stats"
 
 const App = () => {
   return (
-    <div>
-      <h1 className="text-center text-2xl font-bold my-10 text-slate-500">Hello </h1>
-
-      <Logo />
-    </div>
+    <>
+      <Hero />
+      <Stats />
+      <OurService />
+      <Services />
+      <FAQ />
+      <CTA />
+    </>
   )
 }
 
