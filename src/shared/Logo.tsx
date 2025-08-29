@@ -1,8 +1,8 @@
 import logo from "../assets/images/logo.png";
 
-const Logo = () => {
+const Logo = ({ width = 150, height = 150 }) => {
     return (
-        <img src={logo} width={150} height={150} alt="logo" />
+        <img src={logo} width={width} height={height} alt="logo" />
     )
 }
 
