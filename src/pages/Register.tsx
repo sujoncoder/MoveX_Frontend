@@ -1,36 +1,58 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRegisterMutation } from "@/redux/features/auth.api";
+import { toast } from "sonner";
+import { RegisterSchema, RegisterSchemaType } from "@/schema/registerSchema";
+
 
 
 const Register = () => {
-    const [name, setName] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
-    const [phone, setPhone] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
     const [showPassword, setShowPassword] = useState<boolean>(false);
-    const [loading, setLoading] = useState<boolean>(false);
+
+    const [registerUser] = useRegisterMutation();
+
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors, isSubmitting },
+    } = useForm<RegisterSchemaType>({
+        resolver: zodResolver(RegisterSchema),
+        mode: "onChange",
+    });
+
+    const watchPassword = watch("password", "");
+
+    const navigate = useNavigate();
+
+    // PASSWORD REQUIREMENT CHECK
+    const hasUppercase = /[A-Z]/.test(watchPassword);
+    const hasNumber = /\d/.test(watchPassword);
+    const hasSpecialChar = /[!@#$%^&*()_\-+=\[\]{};':"\\|,.<>/?]/.test(watchPassword);
+    const hasMinLength = watchPassword.length >= 8;
 
     // HANDLE SUBMIT
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setLoading(true);
+    const onSubmit = async (formData: RegisterSchemaType) => {
         try {
-            console.log({ name, email, phone, password });
-            await new Promise((res) => setTimeout(res, 2000));
-        } finally {
-            setLoading(false);
+            const result = await registerUser(formData).unwrap();
+            toast.success(result.message || "Account created successfully!");
+            navigate("/")
+        } catch (err: any) {
+            toast.error(err?.data?.message || "Registration failed. Please try again.");
         }
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-            <div className="w-full max-w-md bg-white rounded-md shadow p-8">
-                <h2 className="text-2xl font-bold text-center text-slate-600 mb-6 font-mono">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+            <div className="w-full max-w-md bg-white rounded-md shadow px-8 py-4">
+                <h2 className="text-2xl font-bold text-center text-slate-600 mb-4 font-mono">
                     Create an Account
                 </h2>
 
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
                     {/* NAME FIELD */}
                     <div>
                         <label
@@ -42,12 +64,16 @@ const Register = () => {
                         <input
                             type="text"
                             id="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-slate-500 focus:outline-none"
+                            {...register("name")}
+                            className={`w-full px-4 py-2 border-2 rounded-md focus:outline-none ${errors.name ? "border-red-500" : ""
+                                }`}
                             placeholder="Enter your full name"
-                            required
                         />
+                        {errors.name && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.name.message}
+                            </p>
+                        )}
                     </div>
 
                     {/* EMAIL FIELD */}
@@ -61,12 +87,16 @@ const Register = () => {
                         <input
                             type="email"
                             id="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-slate-500 focus:outline-none"
+                            {...register("email")}
+                            className={`w-full px-4 py-2 border-2 rounded-md focus:outline-none ${errors.email ? "border-red-500" : ""
+                                }`}
                             placeholder="Enter your email"
-                            required
                         />
+                        {errors.email && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.email.message}
+                            </p>
+                        )}
                     </div>
 
                     {/* PHONE FIELD */}
@@ -80,12 +110,16 @@ const Register = () => {
                         <input
                             type="tel"
                             id="phone"
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
-                            className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-slate-500 focus:outline-none"
-                            placeholder="Enter your phone number"
-                            required
+                            {...register("phone")}
+                            className={`w-full px-4 py-2 border-2 rounded-md focus:outline-none ${errors.phone ? "border-red-500" : ""
+                                }`}
+                            placeholder="Enter your phone number (e.g., 01712345678)"
                         />
+                        {errors.phone && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.phone.message}
+                            </p>
+                        )}
                     </div>
 
                     {/* PASSWORD FIELD */}
@@ -99,11 +133,10 @@ const Register = () => {
                         <input
                             type={showPassword ? "text" : "password"}
                             id="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-slate-500 focus:outline-none pr-10"
+                            {...register("password")}
+                            className={`w-full px-4 py-2 border-2 rounded-md focus:outline-none pr-10 ${errors.password ? "border-red-500" : ""
+                                }`}
                             placeholder="Enter your password"
-                            required
                         />
                         <button
                             type="button"
@@ -113,21 +146,62 @@ const Register = () => {
                         >
                             {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                         </button>
+                        {errors.password && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.password.message}
+                            </p>
+                        )}
+                    </div>
+
+                    {/* PASSWORD REQUIREMENTS */}
+                    <div className="text-sm text-slate-500">
+                        <p className="mt-4 mb-2">Password must contain:</p>
+                        <div className="flex justify-between items-center space-y-1.5 pb-2">
+                            <ul>
+                                <li className={`flex items-center ${hasMinLength ? "text-green-500 font-mono" : "text-gray-600"}`}>
+                                    <span className={`mr-2 ${hasMinLength ? "text-green-500 font-mono" : "text-slate-500"}`}>
+                                        {hasMinLength ? "✓" : "○"}
+                                    </span>
+                                    At least 8 characters
+                                </li>
+                                <li className={`flex items-center ${hasUppercase ? "text-green-500 font-mono" : "text-gray-600"}`}>
+                                    <span className={`mr-2 ${hasUppercase ? "text-green-500 font-mono" : "text-slate-500"}`}>
+                                        {hasUppercase ? "✓" : "○"}
+                                    </span>
+                                    One uppercase letter
+                                </li>
+                            </ul>
+
+                            <ul>
+                                <li className={`flex items-center ${hasNumber ? "text-green-500 font-mono" : "text-gray-600"}`}>
+                                    <span className={`mr-2 ${hasNumber ? "text-green-500 font-mono" : "text-slate-500"}`}>
+                                        {hasNumber ? "✓" : "○"}
+                                    </span>
+                                    One number
+                                </li>
+                                <li className={`flex items-center ${hasSpecialChar ? "text-green-500 font-mono" : "text-gray-600"}`}>
+                                    <span className={`mr-2 ${hasSpecialChar ? "text-green-500 font-mono" : "text-slate-500"}`}>
+                                        {hasSpecialChar ? "✓" : "○"}
+                                    </span>
+                                    One special character
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                     {/* SUBMIT BUTTON */}
                     <button
                         type="submit"
-                        disabled={loading}
-                        className={`w-full flex justify-center items-center gap-2 cursor-pointer text-white py-2 rounded-md shadow bg-blue-500 active:bg-blue-600 transition duration-300 ${loading ? "opacity-70 cursor-not-allowed" : ""
+                        disabled={isSubmitting}
+                        className={`w-full flex justify-center items-center gap-2 cursor-pointer text-white py-2 rounded-md shadow bg-blue-500 active:bg-blue-600 transition duration-300 ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""
                             }`}
                     >
-                        {loading && <Loader2 className="animate-spin" size={18} />}
-                        {loading ? "Creating account..." : "Register"}
+                        {isSubmitting && <Loader2 className="animate-spin" size={18} />}
+                        {isSubmitting ? "Creating account..." : "Register"}
                     </button>
                 </form>
 
-                <p className="text-center text-sm text-gray-600 mt-6">
+                <p className="text-center text-sm text-gray-600 mt-4">
                     Already have an account?{" "}
                     <Link
                         to="/login"

@@ -3,7 +3,7 @@ import Logo from "../shared/Logo";
 
 export default function Footer() {
     return (
-        <footer className="bg-slate-100 text-slate-700 py-12">
+        <footer className="bg-slate-100 text-slate-700 py-12 border">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Logo & Description */}
