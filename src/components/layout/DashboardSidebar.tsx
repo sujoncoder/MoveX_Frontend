@@ -1,20 +1,18 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router";
 import { Menu, X } from "lucide-react";
-import { getCurrentUser } from "@/utils/auth";
 import { menuItems } from "@/data/sidebarData";
 import { IDashboardSidebarProps, IMenuItem } from "./type/sidebar.types";
 import Logo from "@/shared/Logo";
+import { useAuth } from "@/utils/useAuth";
 
 
-const DashboardSidebar: React.FC<IDashboardSidebarProps> = ({
-    onToggle
-}) => {
+const DashboardSidebar: React.FC<IDashboardSidebarProps> = ({ onToggle }) => {
+
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const user = getCurrentUser();
+    const { user } = useAuth();
 
-    const currentMenuItems: IMenuItem[] = menuItems[user.role] || [];
+    const currentMenuItems: IMenuItem[] = user ? menuItems[user.role] : [];
 
     // OPEN
     const toggleMobileMenu = () => {
@@ -82,15 +80,15 @@ const DashboardSidebar: React.FC<IDashboardSidebarProps> = ({
                         </button>
                     </div>
 
-                    <div className="text-center mt-2 font-mono hidden lg:block">
-                        <p className="font-semibold text-gray-700 truncate" title={user.name}>
-                            {user.name}
+                    <div className="text-center mt-5 hidden lg:block space-y-1">
+                        <p className="font-semibold text-slate-600 capitalize" title={user?.name}>
+                            {user?.name}
                         </p>
-                        <p className="text-gray-500 truncate" title={user.email}>
-                            {user.email}
+                        <p className="text-slate-500 text-sm" title={user?.email}>
+                            {user?.email}
                         </p>
-                        <span className="inline-block mt-1 px-3 py-1 bg-slate-500 text-white rounded-full capitalize">
-                            {user.role}
+                        <span className="inline-block px-2 py-1 text-xs bg-slate-500 text-white rounded-full">
+                            {user?.role}
                         </span>
                     </div>
                 </div >

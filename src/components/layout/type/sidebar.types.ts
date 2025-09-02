@@ -1,11 +1,12 @@
 import { LucideIcon } from "lucide-react";
+import { UserRole } from "@/types/auth.type";
 
 // USER TYPE DEFINATION
 export interface IUser {
     id: number;
     name: string;
     email: string;
-    role: 'admin' | 'sender' | 'receiver';
+    role: UserRole
 };
 
 // MENU ITEAM TYPE DEFINATION

@@ -6,7 +6,7 @@ import team from "../assets/images/movex-team.png"
 
 const About = () => {
     return (
-        <section className="w-full px-6 py-16 bg-gray-50 mt-10" >
+        <section className="w-full px-6 bg-gray-50 py-16" >
             <div className="max-w-6xl mx-auto">
                 {/* About Us */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-16">
@@ -39,7 +39,7 @@ const About = () => {
                         <img
                             src={team}
                             alt="Our Team"
-                            className="w-full rounded-2xl shadow-md object-cover"
+                            className="w-full rounded-md object-cover hover:rotate-2 duration-300"
                         />
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import { getCurrentUser } from "@/utils/auth";
+import { useAuth } from "@/utils/useAuth";
 import { Bell, Search, LogOut } from "lucide-react";
 
 
@@ -8,15 +8,15 @@ interface DashboardHeaderProps {
 
 
 const DashboardHeader: React.FC<DashboardHeaderProps> = () => {
-    const user = getCurrentUser();
+    const { user, role } = useAuth();
 
     return (
         <header className="bg-white shadow-sm border-b px-4 lg:px-6 py-4 sticky top-0 z-30">
             <div className="flex items-center justify-between">
 
                 {/* Mobile Menu Button */}
-                <h1 className="ml-10 lg:ml-0 text-xl font-semibold lg:text-2xl text-gray-800">
-                    {user.role.charAt(0).toUpperCase() + user.role.slice(1)} Dashboard
+                <h1 className="ml-10 lg:ml-0 text-xl font-semibold lg:text-2xl text-slate-700 space-x-2">
+                    Dashboard
                 </h1>
 
                 <div className="flex items-center space-x-2 lg:space-x-4">
@@ -49,15 +49,15 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = () => {
                         <div className="hidden sm:block">
                             <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
                                 <span className="text-white font-semibold text-sm">
-                                    {user.name.charAt(0)}
+                                    {user?.name.charAt(0)}
                                 </span>
                             </div>
                         </div>
 
                         {/* User Name - Hidden on small screens */}
                         <div className="hidden lg:block text-sm">
-                            <p className="font-medium text-gray-700">{user.name}</p>
-                            <p className="text-xs text-gray-500 capitalize">{user.role}</p>
+                            <p className="font-medium text-gray-700">{user?.name}</p>
+                            <p className="text-xs text-gray-500 capitalize">{role}</p>
                         </div>
 
                         {/* Logout */}

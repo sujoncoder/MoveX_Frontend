@@ -14,7 +14,7 @@ export default function Hero({ onTrack }: { onTrack?: (code: string) => void }) 
     };
 
     return (
-        <section className="relative isolate overflow-hidden min-h-screen flex items-center">
+        <section className="relative isolate overflow-hidden flex items-center">
             {/* Background Gradient Shapes */}
             <div className="absolute inset-0 -z-10">
                 <div className="absolute -top-24 left-1/2 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-gradient-to-tr from-blue-500/15 via-indigo-500/10 to-purple-500/15 blur-3xl" />

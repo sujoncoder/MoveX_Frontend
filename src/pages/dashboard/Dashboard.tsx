@@ -1,4 +1,4 @@
-import { getCurrentUser } from "@/utils/auth";
+import { useAuth } from "@/utils/useAuth";
 import AdminDashboard from "./AdminDashboard";
 import SenderDashboard from "./SenderDashboard";
 import ReceiverDashboard from "./ReceiverDashboard";
@@ -6,16 +6,16 @@ import ReceiverDashboard from "./ReceiverDashboard";
 
 
 const Dashboard = () => {
-    const user = getCurrentUser();
+    const { user, role } = useAuth();
 
     // Role-based dashboard content
     const renderDashboard = () => {
-        switch (user.role) {
-            case 'admin':
+        switch (role) {
+            case 'ADMIN':
                 return <AdminDashboard />;
-            case 'sender':
+            case 'SENDER':
                 return <SenderDashboard />;
-            case 'receiver':
+            case 'RECEIVER':
                 return <ReceiverDashboard />;
             default:
                 return <div>Invalid role</div>;
@@ -27,7 +27,7 @@ const Dashboard = () => {
             {/* Welcome Section */}
             <div className="bg-white rounded-lg shadow p-6">
                 <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                    Welcome back, {user.name}!
+                    Welcome back, {user?.name}!
                 </h2>
                 <p className="text-gray-600">
                     Here's what's happening with your parcels today.

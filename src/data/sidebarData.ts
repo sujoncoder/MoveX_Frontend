@@ -13,7 +13,7 @@ import {
 
 
 export const menuItems: TMenuItemsConfig = {
-    admin: [
+    ADMIN: [
         { name: 'Dashboard', icon: LayoutDashboard, route: '/dashboard' },
         { name: 'Analytics', icon: TrendingUp, route: '/dashboard/analytics' },
         { name: 'All Parcels', icon: Package, route: '/dashboard/all-parcels' },
@@ -21,7 +21,7 @@ export const menuItems: TMenuItemsConfig = {
         { name: 'Track Parcel', icon: Search, route: '/dashboard/track-parcel' },
         { name: 'Profile', icon: User, route: '/dashboard/profile' },
     ],
-    sender: [
+    SENDER: [
         { name: 'Dashboard', icon: LayoutDashboard, route: '/dashboard' },
         { name: 'My Parcels', icon: Package, route: '/dashboard/my-parcels' },
         { name: 'Send Parcel', icon: Send, route: '/dashboard/send-parcel' },
@@ -29,7 +29,7 @@ export const menuItems: TMenuItemsConfig = {
         { name: 'Track Parcel', icon: Search, route: '/dashboard/track-parcel' },
         { name: 'Profile', icon: User, route: '/dashboard/profile' },
     ],
-    receiver: [
+    RECEIVER: [
         { name: 'Dashboard', icon: LayoutDashboard, route: '/dashboard' },
         { name: 'My parcels', icon: LayoutDashboard, route: '/dashboard/my-parcels' },
         { name: 'My Parcels', icon: Inbox, route: '/dashboard/my' },

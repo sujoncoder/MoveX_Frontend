@@ -23,6 +23,7 @@ const LoginForm = () => {
     const onSubmit = async (formData: LoginSchemaType) => {
         try {
             const result = await login(formData).unwrap();
+            console.log(result)
             toast.success(result.message);
             navigate("/")
         } catch (err: any) {

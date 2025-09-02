@@ -3,6 +3,7 @@ import { Outlet } from "react-router";
 import DashboardSidebar from "./DashboardSidebar";
 import DashboardHeader from "./DashboardHeader";
 
+
 const DashboardLayout: React.FC = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -14,7 +15,7 @@ const DashboardLayout: React.FC = () => {
         <div className="min-h-screen bg-gray-50">
             <div className="lg:flex">
                 {/* Sidebar */}
-                <DashboardSidebar isOpen={isSidebarOpen} onToggle={toggleSidebar} />
+                <DashboardSidebar onToggle={toggleSidebar} />
 
                 {/* Main Content */}
                 <div className="flex-1 lg:ml-0 min-h-screen">
