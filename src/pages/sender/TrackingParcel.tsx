@@ -1,17 +1,14 @@
 import { useState } from "react";
 import {
-    Search,
-    Package,
-    Truck,
-    MapPin,
-    CheckCircle,
-    Clock,
-    AlertCircle,
-    Eye,
-    Copy,
-    Phone,
-    Mail
-} from "lucide-react";
+    IconSearch,
+    IconPackage,
+    IconMapPin,
+    IconCircleCheck,
+    IconClock,
+    IconAlertCircle,
+    IconCopy,
+    IconPhone,
+} from "@tabler/icons-react";
 
 // Types
 interface TrackingInfo {
@@ -190,7 +187,7 @@ const TrackParcel: React.FC = () => {
                         />
                         {error && (
                             <p className="mt-2 text-sm text-red-600 flex items-center">
-                                <AlertCircle size={16} className="mr-1" />
+                                <IconAlertCircle size={16} className="mr-1" />
                                 {error}
                             </p>
                         )}
@@ -208,7 +205,7 @@ const TrackParcel: React.FC = () => {
                                 </>
                             ) : (
                                 <>
-                                    <Search size={20} />
+                                    <IconSearch size={20} />
                                     <span>Track Parcel</span>
                                 </>
                             )}
@@ -233,7 +230,7 @@ const TrackParcel: React.FC = () => {
                                         className="p-1 hover:bg-gray-100 rounded transition-colors"
                                         title="Copy tracking ID"
                                     >
-                                        <Copy size={16} />
+                                        <IconCopy size={16} />
                                     </button>
                                 </div>
                                 <span className={`px-3 py-1 rounded-full text-sm font-medium capitalize ${getStatusColor(trackingData.status)}`}>
@@ -250,14 +247,14 @@ const TrackParcel: React.FC = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="flex items-center space-x-3">
-                                <MapPin className="text-blue-600" size={20} />
+                                <IconMapPin className="text-blue-600" size={20} />
                                 <div>
                                     <p className="text-sm text-gray-600">Current Location</p>
                                     <p className="font-medium">{trackingData.currentLocation}</p>
                                 </div>
                             </div>
                             <div className="flex items-center space-x-3">
-                                <Package className="text-green-600" size={20} />
+                                <IconPackage className="text-green-600" size={20} />
                                 <div>
                                     <p className="text-sm text-gray-600">Package Type</p>
                                     <p className="font-medium">{trackingData.parcel.type}</p>
@@ -279,11 +276,11 @@ const TrackParcel: React.FC = () => {
                                             : 'bg-gray-100 text-gray-400'
                                         }`}>
                                         {item.isCompleted ? (
-                                            <CheckCircle size={16} />
+                                            <IconCircleCheck size={16} />
                                         ) : index === trackingData.timeline.findIndex(t => !t.isCompleted) ? (
-                                            <Clock size={16} />
+                                            <IconClock size={16} />
                                         ) : (
-                                            <Clock size={16} />
+                                            <IconClock size={16} />
                                         )}
                                     </div>
                                     <div className="flex-1 min-w-0">
@@ -315,7 +312,7 @@ const TrackParcel: React.FC = () => {
                                 <div className="bg-gray-50 rounded-lg p-3">
                                     <p className="font-medium">{trackingData.sender.name}</p>
                                     <div className="flex items-center space-x-2 text-sm text-gray-600 mt-1">
-                                        <Phone size={14} />
+                                        <IconPhone size={14} />
                                         <span>{trackingData.sender.phone}</span>
                                     </div>
                                     <p className="text-sm text-gray-600 mt-1">{trackingData.sender.address}</p>
@@ -328,7 +325,7 @@ const TrackParcel: React.FC = () => {
                                 <div className="bg-gray-50 rounded-lg p-3">
                                     <p className="font-medium">{trackingData.receiver.name}</p>
                                     <div className="flex items-center space-x-2 text-sm text-gray-600 mt-1">
-                                        <Phone size={14} />
+                                        <IconPhone size={14} />
                                         <span>{trackingData.receiver.phone}</span>
                                     </div>
                                     <p className="text-sm text-gray-600 mt-1">{trackingData.receiver.address}</p>

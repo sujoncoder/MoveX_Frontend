@@ -1,35 +1,30 @@
-import { useState } from "react";
 import { Outlet } from "react-router";
-import DashboardSidebar from "./DashboardSidebar";
-import DashboardHeader from "./DashboardHeader";
+import DashboardHeader from "./DashboardHeader"
+import DashboardSidebar from "./DashboardSidebar"
 
 
-const DashboardLayout: React.FC = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-    const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
-    };
-
+const DashboardLayout = () => {
     return (
-        <div className="min-h-screen bg-gray-50">
-            <div className="lg:flex">
-                {/* Sidebar */}
-                <DashboardSidebar onToggle={toggleSidebar} />
+        <div className="min-h-screen [background:radial-gradient(120%_100%_at_50%_0%,_#FFFFFF_8%,_#FFF5F7_35%,_#FED7D7_70%,_#FFFFFF_100%)] p-3">
+            <div className="grid grid-cols-6 gap-3 h-[calc(100vh-26px)]">
+                {/* SIDE BAR CONTENT */}
+                <div className="col-span-1">
+                    <DashboardSidebar />
+                </div>
 
-                {/* Main Content */}
-                <div className="flex-1 lg:ml-0 min-h-screen">
-                    {/* Header */}
-                    <DashboardHeader onMenuToggle={toggleSidebar} />
 
-                    {/* Page Content */}
-                    <main className="p-4 lg:p-6 pt-16 lg:pt-6">
+                <div className="col-span-5 space-y-3">
+                    {/* DASHBOARD HEADER */}
+                    <DashboardHeader />
+
+                    {/* OUTLET CONTENT */}
+                    <div className="bg-black/10 rounded-r-xl shadow p-5">
                         <Outlet />
-                    </main>
+                    </div>
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default DashboardLayout;

@@ -23,18 +23,18 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="space-y-6">
-            {/* Welcome Section */}
-            <div className="bg-white rounded-lg shadow p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                    Welcome back, {user?.name}!
+        <div className="space-y-5">
+            {/* WELCOME SECTION */}
+            <div className="bg-white rounded-md p-5">
+                <h2 className="text-2xl font-bold text-slate-500 mb-2 font-mono">
+                    Welcome back, <span className="capitalize text-slate-600">{user?.name}</span>
                 </h2>
-                <p className="text-gray-600">
+                <p className="text-gray-500">
                     Here's what's happening with your parcels today.
                 </p>
             </div>
 
-            {/* Role-specific Dashboard Content */}
+            {/* ROLE BASED DASHBOARD CONTENT */}
             {renderDashboard()}
         </div>
     );

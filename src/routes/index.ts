@@ -39,7 +39,6 @@ export const router = createBrowserRouter([
             { path: "/register", Component: Register },
         ]
     },
-    // UNIFIED DASHBOARD FOR ALL ROLES
     {
         path: "/dashboard",
         Component: DashboardLayout,

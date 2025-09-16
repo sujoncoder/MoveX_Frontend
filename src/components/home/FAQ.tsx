@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
+import { IconPlus, IconMinus } from "@tabler/icons-react";
 import { faqs } from "../../lib/faqData";
 
 
@@ -28,9 +28,9 @@ const FAQ = () => {
                         >
                             <span>{faq.question}</span>
                             {openIndex === index ? (
-                                <Minus className="w-5 h-5 text-green-600" />
+                                <IconMinus className="w-5 h-5 text-green-600" />
                             ) : (
-                                <Plus className="w-5 h-5 text-green-600" />
+                                <IconPlus className="w-5 h-5 text-green-600" />
                             )}
                         </button>
                         <div

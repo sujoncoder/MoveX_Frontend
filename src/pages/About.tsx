@@ -1,4 +1,4 @@
-import { Target, Mountain } from "lucide-react";
+import { IconTarget, IconMountain } from "@tabler/icons-react";
 import Stats from "../components/home/Stats";
 import team from "../assets/images/movex-team.png"
 
@@ -6,7 +6,7 @@ import team from "../assets/images/movex-team.png"
 
 const About = () => {
     return (
-        <section className="w-full px-6 bg-gray-50 py-16" >
+        <section className="w-full px-6 py-16" >
             <div className="max-w-6xl mx-auto">
                 {/* About Us */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-16">
@@ -48,7 +48,7 @@ const About = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Mission */}
                     <div className="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition">
-                        <Target className="w-10 h-10 text-green-600 mb-4" />
+                        <IconTarget className="w-10 h-10 text-green-600 mb-4" />
                         <h3 className="text-xl font-semibold text-gray-800 mb-3">Our Mission</h3>
                         <p className="text-gray-600">
                             To put a smile on your face by providing fast, secure, and hassle-free
@@ -59,7 +59,7 @@ const About = () => {
 
                     {/* Vision */}
                     <div className="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition">
-                        <Mountain className="w-10 h-10 text-green-600 mb-4" />
+                        <IconMountain className="w-10 h-10 text-green-600 mb-4" />
                         <h3 className="text-xl font-semibold text-gray-800 mb-3">Our Vision</h3>
                         <p className="text-gray-600">
                             Redefine the future of e-commerce logistics in Bangladesh through

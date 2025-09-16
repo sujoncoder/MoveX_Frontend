@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { IconEye, IconEyeOff, IconLoader2 } from "@tabler/icons-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRegisterMutation } from "@/redux/features/auth.api";
@@ -46,8 +46,8 @@ const Register = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="w-full max-w-md bg-white rounded-md shadow px-8 py-4">
+        <div className="min-h-screen flex items-center justify-center">
+            <div className="w-full max-w-md bg-slate-50 border rounded-md shadow px-8 py-4">
                 <h2 className="text-2xl font-bold text-center text-slate-600 mb-4 font-mono">
                     Create an Account
                 </h2>
@@ -65,7 +65,7 @@ const Register = () => {
                             type="text"
                             id="name"
                             {...register("name")}
-                            className={`w-full px-4 py-2 border-2 rounded-md focus:outline-none ${errors.name ? "border-red-500" : ""
+                            className={`w-full px-4 bg-white py-2 border-2 rounded-md focus:outline-none ${errors.name ? "border-red-500" : ""
                                 }`}
                             placeholder="Enter your full name"
                         />
@@ -88,7 +88,7 @@ const Register = () => {
                             type="email"
                             id="email"
                             {...register("email")}
-                            className={`w-full px-4 py-2 border-2 rounded-md focus:outline-none ${errors.email ? "border-red-500" : ""
+                            className={`w-full bg-white px-4 py-2 border-2 rounded-md focus:outline-none ${errors.email ? "border-red-500" : ""
                                 }`}
                             placeholder="Enter your email"
                         />
@@ -111,7 +111,7 @@ const Register = () => {
                             type="tel"
                             id="phone"
                             {...register("phone")}
-                            className={`w-full px-4 py-2 border-2 rounded-md focus:outline-none ${errors.phone ? "border-red-500" : ""
+                            className={`w-full bg-white px-4 py-2 border-2 rounded-md focus:outline-none ${errors.phone ? "border-red-500" : ""
                                 }`}
                             placeholder="Enter your phone number (e.g., 01712345678)"
                         />
@@ -134,7 +134,7 @@ const Register = () => {
                             type={showPassword ? "text" : "password"}
                             id="password"
                             {...register("password")}
-                            className={`w-full px-4 py-2 border-2 rounded-md focus:outline-none pr-10 ${errors.password ? "border-red-500" : ""
+                            className={`w-full bg-white px-4 py-2 border-2 rounded-md focus:outline-none pr-10 ${errors.password ? "border-red-500" : ""
                                 }`}
                             placeholder="Enter your password"
                         />
@@ -144,7 +144,7 @@ const Register = () => {
                             className="absolute right-3 top-9 text-gray-500 hover:text-gray-700"
                             tabIndex={-1}
                         >
-                            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                            {showPassword ? <IconEyeOff size={20} /> : <IconEye size={20} />}
                         </button>
                         {errors.password && (
                             <p className="text-red-500 text-sm mt-1">
@@ -196,7 +196,7 @@ const Register = () => {
                         className={`w-full flex justify-center items-center gap-2 cursor-pointer text-white py-2 rounded-md shadow bg-blue-500 active:bg-blue-600 transition duration-300 ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""
                             }`}
                     >
-                        {isSubmitting && <Loader2 className="animate-spin" size={18} />}
+                        {isSubmitting && <IconLoader2 className="animate-spin" size={18} />}
                         {isSubmitting ? "Creating account..." : "Register"}
                     </button>
                 </form>

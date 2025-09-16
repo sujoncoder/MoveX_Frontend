@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Plus, Eye, Edit, Trash2, Users } from 'lucide-react';
+import { IconSearch, IconPlus, IconEye, IconEdit, IconTrash, IconUsers } from '@tabler/icons-react';
 
 interface User {
     _id: string;
@@ -75,7 +75,7 @@ const UserManagement: React.FC = () => {
                     <p className="text-gray-600">Manage all users</p>
                 </div>
                 <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
-                    <Plus className="w-4 h-4" />
+                    <IconPlus className="w-4 h-4" />
                     Add User
                 </button>
             </div>
@@ -85,7 +85,7 @@ const UserManagement: React.FC = () => {
                 <div className="bg-white p-4 rounded-lg shadow-sm border">
                     <div className="flex items-center gap-3">
                         <div className="p-2 bg-blue-100 rounded-lg">
-                            <Users className="w-5 h-5 text-blue-600" />
+                            <IconUsers className="w-5 h-5 text-blue-600" />
                         </div>
                         <div>
                             <p className="text-sm text-gray-600">Total Users</p>
@@ -96,7 +96,7 @@ const UserManagement: React.FC = () => {
                 <div className="bg-white p-4 rounded-lg shadow-sm border">
                     <div className="flex items-center gap-3">
                         <div className="p-2 bg-green-100 rounded-lg">
-                            <Users className="w-5 h-5 text-green-600" />
+                            <IconUsers className="w-5 h-5 text-green-600" />
                         </div>
                         <div>
                             <p className="text-sm text-gray-600">Active</p>
@@ -107,7 +107,7 @@ const UserManagement: React.FC = () => {
                 <div className="bg-white p-4 rounded-lg shadow-sm border">
                     <div className="flex items-center gap-3">
                         <div className="p-2 bg-red-100 rounded-lg">
-                            <Users className="w-5 h-5 text-red-600" />
+                            <IconUsers className="w-5 h-5 text-red-600" />
                         </div>
                         <div>
                             <p className="text-sm text-gray-600">Blocked</p>
@@ -120,7 +120,7 @@ const UserManagement: React.FC = () => {
             {/* Search */}
             <div className="bg-white p-4 rounded-lg shadow-sm border mb-6">
                 <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <IconSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <input
                         type="text"
                         placeholder="Search users..."
@@ -181,13 +181,13 @@ const UserManagement: React.FC = () => {
                                     <td className="px-6 py-4">
                                         <div className="flex gap-2">
                                             <button className="p-1 text-gray-600 hover:text-blue-600">
-                                                <Eye className="w-4 h-4" />
+                                                <IconEye className="w-4 h-4" />
                                             </button>
                                             <button className="p-1 text-gray-600 hover:text-green-600">
-                                                <Edit className="w-4 h-4" />
+                                                <IconEdit className="w-4 h-4" />
                                             </button>
                                             <button className="p-1 text-gray-600 hover:text-red-600">
-                                                <Trash2 className="w-4 h-4" />
+                                                <IconTrash className="w-4 h-4" />
                                             </button>
                                         </div>
                                     </td>
@@ -226,13 +226,13 @@ const UserManagement: React.FC = () => {
                                 </span>
                                 <div className="flex gap-2">
                                     <button className="p-1 text-gray-600 hover:text-blue-600">
-                                        <Eye className="w-4 h-4" />
+                                        <IconEye className="w-4 h-4" />
                                     </button>
                                     <button className="p-1 text-gray-600 hover:text-green-600">
-                                        <Edit className="w-4 h-4" />
+                                        <IconEdit className="w-4 h-4" />
                                     </button>
                                     <button className="p-1 text-gray-600 hover:text-red-600">
-                                        <Trash2 className="w-4 h-4" />
+                                        <IconTrash className="w-4 h-4" />
                                     </button>
                                 </div>
                             </div>

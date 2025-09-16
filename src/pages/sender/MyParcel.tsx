@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Plus, Package, Truck, CheckCircle, Clock, Eye, MapPin, Calendar, Phone } from 'lucide-react';
+import { IconSearch, IconPlus, IconPackage, IconTruck, IconCircleCheck, IconClock, IconEye, IconMapPin, IconCalendar, IconPhone } from '@tabler/icons-react';
 
 interface Parcel {
     _id: string;
@@ -79,10 +79,10 @@ const MyParcels: React.FC = () => {
     };
 
     const statusIcons = {
-        pending: Clock,
-        processing: Package,
-        'in-transit': Truck,
-        delivered: CheckCircle,
+        pending: IconClock,
+        processing: IconPackage,
+        'in-transit': IconTruck,
+        delivered: IconCircleCheck,
     };
 
     const filteredParcels = parcels.filter(parcel => {
@@ -122,7 +122,7 @@ const MyParcels: React.FC = () => {
                     <p className="text-gray-600">Track and manage your sent parcels</p>
                 </div>
                 <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
-                    <Plus className="w-4 h-4" />
+                    <IconPlus className="w-4 h-4" />
                     Send New Parcel
                 </button>
             </div>
@@ -132,7 +132,7 @@ const MyParcels: React.FC = () => {
                 <div className="bg-white p-4 rounded-lg shadow-sm border">
                     <div className="text-center">
                         <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                            <Package className="w-4 h-4 text-blue-600" />
+                            <IconPackage className="w-4 h-4 text-blue-600" />
                         </div>
                         <p className="text-xl font-bold text-gray-900">{parcels.length}</p>
                         <p className="text-xs text-gray-600">Total</p>
@@ -141,7 +141,7 @@ const MyParcels: React.FC = () => {
                 <div className="bg-white p-4 rounded-lg shadow-sm border">
                     <div className="text-center">
                         <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                            <CheckCircle className="w-4 h-4 text-green-600" />
+                            <IconCircleCheck className="w-4 h-4 text-green-600" />
                         </div>
                         <p className="text-xl font-bold text-gray-900">{parcels.filter(p => p.status === 'delivered').length}</p>
                         <p className="text-xs text-gray-600">Delivered</p>
@@ -150,7 +150,7 @@ const MyParcels: React.FC = () => {
                 <div className="bg-white p-4 rounded-lg shadow-sm border">
                     <div className="text-center">
                         <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                            <Truck className="w-4 h-4 text-purple-600" />
+                            <IconTruck className="w-4 h-4 text-purple-600" />
                         </div>
                         <p className="text-xl font-bold text-gray-900">{parcels.filter(p => p.status === 'in-transit').length}</p>
                         <p className="text-xs text-gray-600">In Transit</p>
@@ -159,7 +159,7 @@ const MyParcels: React.FC = () => {
                 <div className="bg-white p-4 rounded-lg shadow-sm border">
                     <div className="text-center">
                         <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                            <Clock className="w-4 h-4 text-yellow-600" />
+                            <IconClock className="w-4 h-4 text-yellow-600" />
                         </div>
                         <p className="text-xl font-bold text-gray-900">{parcels.filter(p => p.status === 'pending').length}</p>
                         <p className="text-xs text-gray-600">Pending</p>
@@ -171,7 +171,7 @@ const MyParcels: React.FC = () => {
             <div className="bg-white p-4 rounded-lg shadow-sm border mb-6">
                 <div className="flex flex-col sm:flex-row gap-4">
                     <div className="flex-1 relative">
-                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                        <IconSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                         <input
                             type="text"
                             placeholder="Search by recipient, tracking code..."
@@ -198,7 +198,7 @@ const MyParcels: React.FC = () => {
             <div className="space-y-4">
                 {filteredParcels.length === 0 ? (
                     <div className="bg-white p-8 rounded-lg shadow-sm border text-center">
-                        <Package className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                        <IconPackage className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                         <p className="text-gray-600">No parcels found</p>
                         <p className="text-sm text-gray-500 mt-1">Try adjusting your search or filter</p>
                     </div>
@@ -211,7 +211,7 @@ const MyParcels: React.FC = () => {
                                     <div className="flex items-center justify-between mb-4">
                                         <div className="flex items-center gap-4">
                                             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                                                <Package className="w-6 h-6 text-blue-600" />
+                                                <IconPackage className="w-6 h-6 text-blue-600" />
                                             </div>
                                             <div>
                                                 <h3 className="font-semibold text-gray-900">{parcel.trackingCode}</h3>
@@ -221,7 +221,7 @@ const MyParcels: React.FC = () => {
                                         <div className="flex items-center gap-4">
                                             <StatusBadge status={parcel.status} />
                                             <button className="p-2 text-gray-600 hover:text-blue-600 rounded-lg hover:bg-gray-50">
-                                                <Eye className="w-4 h-4" />
+                                                <IconEye className="w-4 h-4" />
                                             </button>
                                         </div>
                                     </div>
@@ -231,11 +231,11 @@ const MyParcels: React.FC = () => {
                                             <p className="text-gray-600 mb-1">Recipient Details</p>
                                             <div className="space-y-1">
                                                 <div className="flex items-center gap-2">
-                                                    <Phone className="w-3 h-3 text-gray-400" />
+                                                    <IconPhone className="w-3 h-3 text-gray-400" />
                                                     <span>{parcel.recipientPhone}</span>
                                                 </div>
                                                 <div className="flex items-start gap-2">
-                                                    <MapPin className="w-3 h-3 text-gray-400 mt-0.5" />
+                                                    <IconMapPin className="w-3 h-3 text-gray-400 mt-0.5" />
                                                     <span className="text-xs">{parcel.recipientAddress}</span>
                                                 </div>
                                             </div>
@@ -253,12 +253,12 @@ const MyParcels: React.FC = () => {
                                             <p className="text-gray-600 mb-1">Timeline</p>
                                             <div className="space-y-1">
                                                 <div className="flex items-center gap-2">
-                                                    <Calendar className="w-3 h-3 text-gray-400" />
+                                                    <IconCalendar className="w-3 h-3 text-gray-400" />
                                                     <span className="text-xs">Sent: {formatDate(parcel.createdAt)}</span>
                                                 </div>
                                                 {parcel.deliveryDate && (
                                                     <div className="flex items-center gap-2">
-                                                        <CheckCircle className="w-3 h-3 text-green-400" />
+                                                        <IconCircleCheck className="w-3 h-3 text-green-400" />
                                                         <span className="text-xs">Delivered: {formatDate(parcel.deliveryDate)}</span>
                                                     </div>
                                                 )}
@@ -281,11 +281,11 @@ const MyParcels: React.FC = () => {
                                 <div className="space-y-3">
                                     <div>
                                         <div className="flex items-center gap-2 mb-1">
-                                            <Phone className="w-3 h-3 text-gray-400" />
+                                            <IconPhone className="w-3 h-3 text-gray-400" />
                                             <span className="text-sm">{parcel.recipientPhone}</span>
                                         </div>
                                         <div className="flex items-start gap-2">
-                                            <MapPin className="w-3 h-3 text-gray-400 mt-0.5" />
+                                            <IconMapPin className="w-3 h-3 text-gray-400 mt-0.5" />
                                             <span className="text-xs text-gray-600">{parcel.recipientAddress}</span>
                                         </div>
                                     </div>
@@ -297,11 +297,11 @@ const MyParcels: React.FC = () => {
 
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center gap-2 text-xs text-gray-500">
-                                            <Calendar className="w-3 h-3" />
+                                            <IconCalendar className="w-3 h-3" />
                                             <span>{formatDate(parcel.createdAt)}</span>
                                         </div>
                                         <button className="p-2 text-gray-600 hover:text-blue-600 rounded-lg hover:bg-gray-50">
-                                            <Eye className="w-4 h-4" />
+                                            <IconEye className="w-4 h-4" />
                                         </button>
                                     </div>
                                 </div>

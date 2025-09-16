@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
-import { Menu, X, User, LogOut, Home, Info, Mail, MapPin, LayoutDashboard } from "lucide-react";
+import { IconMenu, IconX, IconUser, IconLogout, IconHome, IconInfoCircle, IconMail, IconMapPin, IconLayoutDashboard } from "@tabler/icons-react";
 import { toast } from "sonner";
 import Logo from "@/shared/Logo";
 import { authApi, useLogoutMutation } from "@/redux/features/auth.api";
@@ -47,22 +47,22 @@ const Navbar = () => {
 
     // COMMON NAVIGATION ROUTE
     const commonNavItems = [
-        { label: "Home", path: "/", icon: Home },
-        { label: "About", path: "/about", icon: Info },
-        { label: "Contact", path: "/contact", icon: Mail },
-        { label: "Tracking", path: "/tracking", icon: MapPin }
+        { label: "Home", path: "/", icon: IconHome },
+        { label: "About", path: "/about", icon: IconInfoCircle },
+        { label: "Contact", path: "/contact", icon: IconMail },
+        { label: "Tracking", path: "/tracking", icon: IconMapPin }
     ];
 
     // DYNAMIC NAVIGATION STATE BASED ON STATE
     const dynamicNavItems = user
         ?
         [
-            { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
-            { label: "Logout", path: "#", icon: LogOut, }
+            { label: "Dashboard", path: "/dashboard", icon: IconLayoutDashboard },
+            { label: "Logout", path: "#", icon: IconLogout, }
         ]
         :
         [
-            { label: "Login", path: "/login", icon: User }
+            { label: "Login", path: "/login", icon: IconUser }
         ];
 
     const allNavItems = [...commonNavItems, ...dynamicNavItems];
@@ -151,7 +151,7 @@ const Navbar = () => {
                                     : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                     }`}
                             >
-                                {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                                {isOpen ? <IconX className="w-6 h-6" /> : <IconMenu className="w-6 h-6" />}
                             </button>
                         </div>
                     </div>

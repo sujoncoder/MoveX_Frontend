@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Camera, Edit, Save, X, Mail, Phone, MapPin, Calendar, User, Shield, Bell, Lock, Eye, EyeOff } from 'lucide-react';
+import { IconCamera, IconEdit, IconX, IconMail, IconPhone, IconMapPin, IconCalendar, IconUser, IconShield, IconBell, IconLock, IconDeviceFloppy, IconEye, IconEyeOff } from '@tabler/icons-react';
 
 interface UserProfile {
     _id: string;
@@ -117,7 +117,7 @@ const Profile = () => {
                                 className="w-24 h-24 rounded-full border-4 border-white object-cover"
                             />
                             <button className="absolute bottom-0 right-0 bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full shadow-lg transition-colors">
-                                <Camera className="w-3 h-3" />
+                                <IconCamera className="w-3 h-3" />
                             </button>
                         </div>
                     </div>
@@ -127,7 +127,7 @@ const Profile = () => {
                                 onClick={() => setIsEditing(true)}
                                 className="bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg border shadow-sm flex items-center gap-2 transition-colors"
                             >
-                                <Edit className="w-4 h-4" />
+                                <IconEdit className="w-4 h-4" />
                                 Edit Profile
                             </button>
                         ) : (
@@ -136,14 +136,14 @@ const Profile = () => {
                                     onClick={handleSave}
                                     className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
                                 >
-                                    <Save className="w-4 h-4" />
+                                    <IconDeviceFloppy className="w-4 h-4" />
                                     Save
                                 </button>
                                 <button
                                     onClick={handleCancel}
                                     className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
                                 >
-                                    <X className="w-4 h-4" />
+                                    <IconX className="w-4 h-4" />
                                     Cancel
                                 </button>
                             </div>
@@ -199,7 +199,7 @@ const Profile = () => {
                             <h3 className="text-lg font-semibold text-gray-900">Contact Information</h3>
 
                             <div className="flex items-center gap-3">
-                                <Mail className="w-5 h-5 text-gray-400" />
+                                <IconMail className="w-5 h-5 text-gray-400" />
                                 <div className="flex-1">
                                     <label className="text-sm font-medium text-gray-700">Email</label>
                                     {isEditing ? (
@@ -216,7 +216,7 @@ const Profile = () => {
                             </div>
 
                             <div className="flex items-center gap-3">
-                                <Phone className="w-5 h-5 text-gray-400" />
+                                <IconPhone className="w-5 h-5 text-gray-400" />
                                 <div className="flex-1">
                                     <label className="text-sm font-medium text-gray-700">Phone</label>
                                     {isEditing ? (
@@ -233,7 +233,7 @@ const Profile = () => {
                             </div>
 
                             <div className="flex items-start gap-3">
-                                <MapPin className="w-5 h-5 text-gray-400 mt-1" />
+                                <IconMapPin className="w-5 h-5 text-gray-400 mt-1" />
                                 <div className="flex-1">
                                     <label className="text-sm font-medium text-gray-700">Address</label>
                                     {isEditing ? (
@@ -255,7 +255,7 @@ const Profile = () => {
                             <h3 className="text-lg font-semibold text-gray-900">Personal Information</h3>
 
                             <div className="flex items-center gap-3">
-                                <User className="w-5 h-5 text-gray-400" />
+                                <IconUser className="w-5 h-5 text-gray-400" />
                                 <div className="flex-1">
                                     <label className="text-sm font-medium text-gray-700">Date of Birth</label>
                                     {isEditing ? (
@@ -274,7 +274,7 @@ const Profile = () => {
                             </div>
 
                             <div className="flex items-center gap-3">
-                                <Calendar className="w-5 h-5 text-gray-400" />
+                                <IconCalendar className="w-5 h-5 text-gray-400" />
                                 <div className="flex-1">
                                     <label className="text-sm font-medium text-gray-700">Member Since</label>
                                     <p className="text-gray-900">{formatDate(profile.joinDate)}</p>
@@ -282,7 +282,7 @@ const Profile = () => {
                             </div>
 
                             <div className="flex items-center gap-3">
-                                <Shield className="w-5 h-5 text-gray-400" />
+                                <IconShield className="w-5 h-5 text-gray-400" />
                                 <div className="flex-1">
                                     <label className="text-sm font-medium text-gray-700">Account ID</label>
                                     <p className="text-gray-900 font-mono text-sm">{profile._id}</p>
@@ -300,7 +300,7 @@ const Profile = () => {
                 <div className="space-y-4">
                     <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
                         <div className="flex items-center gap-3">
-                            <Lock className="w-5 h-5 text-gray-400" />
+                            <IconLock className="w-5 h-5 text-gray-400" />
                             <div>
                                 <p className="font-medium text-gray-900">Password</p>
                                 <p className="text-sm text-gray-600">Last changed 30 days ago</p>
@@ -316,7 +316,7 @@ const Profile = () => {
 
                     <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
                         <div className="flex items-center gap-3">
-                            <Bell className="w-5 h-5 text-gray-400" />
+                            <IconBell className="w-5 h-5 text-gray-400" />
                             <div>
                                 <p className="font-medium text-gray-900">Email Notifications</p>
                                 <p className="text-sm text-gray-600">Receive updates about your parcels</p>
@@ -341,7 +341,7 @@ const Profile = () => {
                                     onClick={() => setShowPasswordChange(false)}
                                     className="text-gray-400 hover:text-gray-600"
                                 >
-                                    <X className="w-5 h-5" />
+                                    <IconX className="w-5 h-5" />
                                 </button>
                             </div>
 
@@ -362,7 +362,7 @@ const Profile = () => {
                                             onClick={() => setShowCurrentPassword(!showCurrentPassword)}
                                             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                                         >
-                                            {showCurrentPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                            {showCurrentPassword ? <IconEyeOff className="w-4 h-4" /> : <IconEye className="w-4 h-4" />}
                                         </button>
                                     </div>
                                 </div>
@@ -383,7 +383,7 @@ const Profile = () => {
                                             onClick={() => setShowNewPassword(!showNewPassword)}
                                             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                                         >
-                                            {showNewPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                            {showNewPassword ? <IconEyeOff className="w-4 h-4" /> : <IconEye className="w-4 h-4" />}
                                         </button>
                                     </div>
                                 </div>
@@ -404,7 +404,7 @@ const Profile = () => {
                                             onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                                             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                                         >
-                                            {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                            {showConfirmPassword ? <IconEyeOff className="w-4 h-4" /> : <IconEye className="w-4 h-4" />}
                                         </button>
                                     </div>
                                 </div>

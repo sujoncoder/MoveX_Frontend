@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { IconEye, IconEyeOff, IconLoader2 } from "@tabler/icons-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLoginMutation } from "@/redux/features/auth.api";
@@ -32,8 +32,8 @@ const LoginForm = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-            <div className="w-full max-w-md bg-white rounded-md shadow p-8">
+        <div className="min-h-screen flex items-center justify-center p-4">
+            <div className="w-full max-w-md bg-slate-50 border rounded-md shadow p-8">
                 <h2 className="text-2xl font-bold text-center text-slate-600 mb-6 font-mono">
                     Welcome Back
                 </h2>
@@ -51,7 +51,7 @@ const LoginForm = () => {
                             type="email"
                             id="email"
                             {...register("email")}
-                            className={`w-full px-4 py-2 border-2 rounded-md focus:outline-none ${errors.email ? "border-red-500" : ""}`}
+                            className={`w-full bg-white px-4 py-2 border-2 rounded-md focus:outline-none ${errors.email ? "border-red-500" : ""}`}
                             placeholder="Enter your email"
                         />
                         {errors.email && (
@@ -73,7 +73,7 @@ const LoginForm = () => {
                             type={showPassword ? "text" : "password"}
                             id="password"
                             {...register("password")}
-                            className={`w-full px-4 py-2 border-2 rounded-md focus:outline-none pr-10 ${errors.password ? "border-red-500" : ""
+                            className={`w-full bg-white px-4 py-2 border-2 rounded-md focus:outline-none pr-10 ${errors.password ? "border-red-500" : ""
                                 }`}
                             placeholder="Enter your password"
                         />
@@ -83,7 +83,7 @@ const LoginForm = () => {
                             className="absolute right-3 top-9 text-gray-500 hover:text-gray-700"
                             tabIndex={-1}
                         >
-                            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                            {showPassword ? <IconEyeOff size={20} /> : <IconEye size={20} />}
                         </button>
                         {errors.password && (
                             <p className="text-red-400 font-mono text-sm mt-1">
@@ -111,7 +111,7 @@ const LoginForm = () => {
                             }`}
                     >
                         {(isLoading || isSubmitting) && (
-                            <Loader2 className="animate-spin" size={18} />
+                            <IconLoader2 className="animate-spin" size={18} />
                         )}
                         {isLoading || isSubmitting ? "Logging in..." : "Login"}
                     </button>

@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Download, Eye, Edit, Trash2, Package, Truck, CheckCircle, Clock, Plus, ChevronLeft, ChevronRight, LucideIcon } from 'lucide-react';
+import { IconSearch, IconDownload, IconEye, IconEdit, IconTrash, IconPackage, IconTruck, IconCircleCheck, IconClock, IconPlus, IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 
 // TypeScript interfaces
 interface Parcel {
@@ -21,21 +21,13 @@ interface StatusConfig {
     [key: string]: string;
 }
 
-interface StatusIconConfig {
-    [key: string]: LucideIcon;
-}
-
 interface StatusBadgeProps {
     status: ParcelStatus;
 }
 
-interface ActionButtonProps {
-    icon: LucideIcon;
-    onClick: () => void;
-    className?: string;
-}
 
-const AllParcelsPage: React.FC = () => {
+
+const AllParcelsPage = () => {
     const [searchTerm, setSearchTerm] = useState<string>('');
     const [statusFilter, setStatusFilter] = useState<string>('all');
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -61,10 +53,10 @@ const AllParcelsPage: React.FC = () => {
     };
 
     const statusIcons: StatusIconConfig = {
-        pending: Clock,
-        processing: Package,
-        'in-transit': Truck,
-        delivered: CheckCircle,
+        pending: IconClock,
+        processing: IconPackage,
+        'in-transit': IconTruck,
+        delivered: IconCircleCheck,
     };
 
     // Filter and search logic
@@ -95,7 +87,7 @@ const AllParcelsPage: React.FC = () => {
         );
     };
 
-    const ActionButton: React.FC<ActionButtonProps> = ({ icon: Icon, onClick, className = "text-gray-600 hover:text-blue-600" }) => (
+    const ActionButton = ({ icon: Icon, onClick, className = "text-gray-600 hover:text-blue-600" }) => (
         <button
             onClick={onClick}
             className={`p-1 rounded-md transition-colors ${className}`}
@@ -115,7 +107,7 @@ const AllParcelsPage: React.FC = () => {
                             <p className="text-gray-600 mt-1">Manage and track all parcel deliveries</p>
                         </div>
                         <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors">
-                            <Plus className="w-4 h-4" />
+                            <IconPlus className="w-4 h-4" />
                             Add New Parcel
                         </button>
                     </div>
@@ -126,7 +118,7 @@ const AllParcelsPage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-sm border">
                         <div className="flex items-center">
                             <div className="p-2 bg-blue-100 rounded-lg">
-                                <Package className="w-6 h-6 text-blue-600" />
+                                <IconPackage className="w-6 h-6 text-blue-600" />
                             </div>
                             <div className="ml-4">
                                 <p className="text-sm font-medium text-gray-600">Total Parcels</p>
@@ -137,7 +129,7 @@ const AllParcelsPage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-sm border">
                         <div className="flex items-center">
                             <div className="p-2 bg-green-100 rounded-lg">
-                                <CheckCircle className="w-6 h-6 text-green-600" />
+                                <IconCircleCheck className="w-6 h-6 text-green-600" />
                             </div>
                             <div className="ml-4">
                                 <p className="text-sm font-medium text-gray-600">Delivered</p>
@@ -150,7 +142,7 @@ const AllParcelsPage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-sm border">
                         <div className="flex items-center">
                             <div className="p-2 bg-purple-100 rounded-lg">
-                                <Truck className="w-6 h-6 text-purple-600" />
+                                <IconTruck className="w-6 h-6 text-purple-600" />
                             </div>
                             <div className="ml-4">
                                 <p className="text-sm font-medium text-gray-600">In Transit</p>
@@ -163,7 +155,7 @@ const AllParcelsPage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-sm border">
                         <div className="flex items-center">
                             <div className="p-2 bg-yellow-100 rounded-lg">
-                                <Clock className="w-6 h-6 text-yellow-600" />
+                                <IconClock className="w-6 h-6 text-yellow-600" />
                             </div>
                             <div className="ml-4">
                                 <p className="text-sm font-medium text-gray-600">Pending</p>
@@ -181,7 +173,7 @@ const AllParcelsPage: React.FC = () => {
                         {/* Search */}
                         <div className="flex-1">
                             <div className="relative">
-                                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                                <IconSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                                 <input
                                     type="text"
                                     placeholder="Search by recipient, parcel ID, or tracking code..."
@@ -207,7 +199,7 @@ const AllParcelsPage: React.FC = () => {
                             </select>
 
                             <button className="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                                <Download className="w-4 h-4" />
+                                <IconDownload className="w-4 h-4" />
                                 Export
                             </button>
                         </div>
@@ -244,7 +236,7 @@ const AllParcelsPage: React.FC = () => {
                                             <div className="flex items-center">
                                                 <div className="flex-shrink-0 h-10 w-10">
                                                     <div className="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                                                        <Package className="h-5 w-5 text-blue-600" />
+                                                        <IconPackage className="h-5 w-5 text-blue-600" />
                                                     </div>
                                                 </div>
                                                 <div className="ml-4">
@@ -267,10 +259,10 @@ const AllParcelsPage: React.FC = () => {
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <div className="flex items-center gap-2">
-                                                <ActionButton icon={Eye} onClick={() => console.log('View', parcel.id)} />
-                                                <ActionButton icon={Edit} onClick={() => console.log('Edit', parcel.id)} />
+                                                <ActionButton icon={IconEye} onClick={() => console.log('View', parcel.id)} />
+                                                <ActionButton icon={IconEdit} onClick={() => console.log('Edit', parcel.id)} />
                                                 <ActionButton
-                                                    icon={Trash2}
+                                                    icon={IconTrash}
                                                     onClick={() => console.log('Delete', parcel.id)}
                                                     className="text-gray-600 hover:text-red-600"
                                                 />
@@ -318,7 +310,7 @@ const AllParcelsPage: React.FC = () => {
                                             disabled={currentPage === 1}
                                             className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50"
                                         >
-                                            <ChevronLeft className="h-5 w-5" />
+                                            <IconChevronLeft className="h-5 w-5" />
                                         </button>
                                         {Array.from({ length: totalPages }, (_, i: number) => i + 1).map((page: number) => (
                                             <button
@@ -337,7 +329,7 @@ const AllParcelsPage: React.FC = () => {
                                             disabled={currentPage === totalPages}
                                             className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50"
                                         >
-                                            <ChevronRight className="h-5 w-5" />
+                                            <IconChevronRight className="h-5 w-5" />
                                         </button>
                                     </nav>
                                 </div>
