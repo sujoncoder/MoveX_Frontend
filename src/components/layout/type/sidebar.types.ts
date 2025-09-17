@@ -1,5 +1,5 @@
-import { LucideIcon } from "lucide-react";
 import { UserRole } from "@/types/auth.type";
+
 
 // USER TYPE DEFINATION
 export interface IUser {
@@ -11,8 +11,9 @@ export interface IUser {
 
 // MENU ITEAM TYPE DEFINATION
 export interface IMenuItem {
+    id: string | number;
     name: string;
-    icon: LucideIcon;
+    icon: React.ComponentType<any>;
     route: string;
 };
 
