@@ -1,11 +1,11 @@
-import { IUser } from "@/components/layout/type/sidebar.types";
+import { IUser } from "@/types/user";
 
 export const getCurrentUser = (): IUser => {
     return {
         id: 1,
         name: "John Doe",
         email: "john@example.com",
-        role: "receiver"
+        role: "sender"
     };
 };
 

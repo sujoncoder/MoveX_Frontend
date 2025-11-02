@@ -6,7 +6,7 @@ const CommonLayout = () => {
     return (
         <>
             <Navbar />
-            <Outlet />  {/* Added missing angle brackets */}
+            <Outlet />
             <Footer />
         </>
     );

@@ -1,6 +1,6 @@
 import { Target, Mountain } from "lucide-react";
-import Stats from "../components/home/Stats";
-import team from "../assets/images/movex-team.png"
+import team from "../../assets/images/movex-team.png"
+import Stats from "@/components/home/Stats";
 
 
 

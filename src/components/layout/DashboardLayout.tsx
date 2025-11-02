@@ -1,34 +1,30 @@
-import { useState } from "react";
-import { Outlet } from "react-router";
-import DashboardSidebar from "./DashboardSidebar";
-import DashboardHeader from "./DashboardHeader";
+import { Outlet } from 'react-router';
+import DashboardSidebarLayout from './DashboardSidebarLayout';
+import DashboardHeaderLayout from './DashboardHeaderLayout';
 
-const DashboardLayout: React.FC = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-    const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
-    };
+// [background:radial-gradient(120%_100%_at_50%_0%,_#FFFFFF_8%,_#FFF0E6_35%,_#FFD6BA_70%,_#FFFFFF_100%)]
 
+
+const DashboardLayout = () => {
     return (
-        <div className="min-h-screen bg-gray-50">
-            <div className="lg:flex">
-                {/* Sidebar */}
-                <DashboardSidebar isOpen={isSidebarOpen} onToggle={toggleSidebar} />
+        <div className="h-screen p-5 flex bg-black/20">
 
-                {/* Main Content */}
-                <div className="flex-1 lg:ml-0 min-h-screen">
-                    {/* Header */}
-                    <DashboardHeader onMenuToggle={toggleSidebar} />
+            <aside className="w-[250px] bg-white/50 p-5 rounded-xl">
+                <DashboardSidebarLayout />
+            </aside>
 
-                    {/* Page Content */}
-                    <main className="p-4 lg:p-6 pt-16 lg:pt-6">
-                        <Outlet />
-                    </main>
-                </div>
+            <div className="flex flex-col flex-1 space-y-5 pl-5">
+                <header className="h-20 p-5 bg-white/50 rounded-xl">
+                    <DashboardHeaderLayout />
+                </header>
+
+                <main className="flex-1 bg-white/50 rounded-xl overflow-y-auto">
+                    <Outlet />
+                </main>
             </div>
-        </div>
-    );
+        </div >
+    )
 };
 
 export default DashboardLayout;

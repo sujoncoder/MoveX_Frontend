@@ -8,10 +8,9 @@
     - Icons8
     - Zod
     - React hook form
-    - Frammermotion
+    - Motion
     - React tour
     - React skeleton
-
 📟 Pages
     - Home page
     - About page
@@ -19,7 +18,6 @@
     - Parcel trackin page
     - Register page
     - Login page
-
 🪶 Components / Features
     - Navbar
     - Hero section
@@ -51,6 +49,7 @@
     # GET    - /api/v1/users                    -> Get all users by admin
     # GET  - /api/v1/users/:id                  -> Get single user by admin
     # PATCH  - /api/v1/users/status/:id         -> Update user status by admin (block/unblock)
+    # PATCH  - /api/v1/users/:id                -> Update user role by admin (sender/receiver)
     # DELETE  - /api/v1/users/status/:id        -> Delete a user using ID (ADMIN)
 
 📦 PARCEL ROUTE

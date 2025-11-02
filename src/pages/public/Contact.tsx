@@ -1,5 +1,5 @@
+import CTA from "@/components/home/CTA";
 import { MapPin, Phone, Mail, PhoneCall } from "lucide-react";
-import CTA from "../components/home/CTA";
 
 
 
