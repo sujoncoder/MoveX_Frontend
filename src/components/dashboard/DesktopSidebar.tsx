@@ -2,7 +2,7 @@ import { menuItems } from "@/data/sidebarData";
 import { NavLink } from "react-router-dom";
 
 
-const Sidebar = () => {
+const DesktopSidebar = () => {
     return (
         <div>
             <ul className="space-y-2">
@@ -38,4 +38,4 @@ const Sidebar = () => {
     );
 };
 
-export default Sidebar;
+export default DesktopSidebar;

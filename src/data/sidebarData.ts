@@ -7,7 +7,12 @@ interface IMenuItem {
     route: string;
 };
 
-const role = "receiver";
+const users = {
+    ADMIN: "admin",
+    SENDER: "sender",
+    RECEIVER: "receiver"
+};
+const role = users.SENDER;
 
 const sidebarLinks: Record<'admin' | 'sender' | 'receiver', IMenuItem[]> = {
     admin: [
