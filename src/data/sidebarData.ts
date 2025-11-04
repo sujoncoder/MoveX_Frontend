@@ -1,6 +1,7 @@
 import React from 'react';
 import { LayoutDashboard, Send, Package, History, TrendingUp, Users, Search, PackageOpen } from "lucide-react";
 
+
 interface IMenuItem {
     name: string;
     icon: React.ElementType;
@@ -12,7 +13,8 @@ const users = {
     SENDER: "sender",
     RECEIVER: "receiver"
 };
-const role = users.SENDER;
+
+export const role = users.SENDER;
 
 const sidebarLinks: Record<'admin' | 'sender' | 'receiver', IMenuItem[]> = {
     admin: [
