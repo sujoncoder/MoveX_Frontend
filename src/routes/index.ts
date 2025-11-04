@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router";
 
-// Dashboard Pages
 import Dashboard from "@/pages/dashboard/Dashboard";
 import Analytics from "@/pages/dashboard/admin/Analytics";
 import UserManagement from "@/pages/dashboard/admin/users";

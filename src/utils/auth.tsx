@@ -1,11 +1,12 @@
-import { IUser } from "@/types/user";
+import { IUser, Role } from "@/types/user";
+
 
 export const getCurrentUser = (): IUser => {
     return {
         id: 1,
         name: "John Doe",
         email: "john@example.com",
-        role: "admin"
+        role: "receiver" as Role,
     };
 };
 

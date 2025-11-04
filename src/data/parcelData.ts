@@ -1,0 +1,80 @@
+export const parcels = [
+    {
+        id: 'PKG-12345',
+        receiverName: 'John Doe',
+        receiverPhone: '+880 1234-567890',
+        destination: 'Dhaka, Bangladesh',
+        weight: '2.5 kg',
+        status: 'in_transit',
+        statusText: 'In Transit',
+        date: '2024-11-02',
+        estimatedDelivery: '2024-11-05',
+        trackingSteps: 3,
+        totalSteps: 5
+    },
+    {
+        id: 'PKG-12344',
+        receiverName: 'Jane Smith',
+        receiverPhone: '+880 1234-567891',
+        destination: 'Chittagong, Bangladesh',
+        weight: '1.8 kg',
+        status: 'delivered',
+        statusText: 'Delivered',
+        date: '2024-10-30',
+        estimatedDelivery: '2024-11-02',
+        trackingSteps: 5,
+        totalSteps: 5
+    },
+    {
+        id: 'PKG-12343',
+        receiverName: 'Mike Johnson',
+        receiverPhone: '+880 1234-567892',
+        destination: 'Sylhet, Bangladesh',
+        weight: '3.2 kg',
+        status: 'pending',
+        statusText: 'Pending Pickup',
+        date: '2024-11-03',
+        estimatedDelivery: '2024-11-07',
+        trackingSteps: 1,
+        totalSteps: 5
+    },
+    {
+        id: 'PKG-12342',
+        receiverName: 'Sarah Williams',
+        receiverPhone: '+880 1234-567893',
+        destination: 'Khulna, Bangladesh',
+        weight: '4.5 kg',
+        status: 'in_transit',
+        statusText: 'In Transit',
+        date: '2024-11-01',
+        estimatedDelivery: '2024-11-04',
+        trackingSteps: 4,
+        totalSteps: 5
+    },
+    {
+        id: 'PKG-12341',
+        receiverName: 'David Brown',
+        receiverPhone: '+880 1234-567894',
+        destination: 'Rajshahi, Bangladesh',
+        weight: '1.2 kg',
+        status: 'delivered',
+        statusText: 'Delivered',
+        date: '2024-10-28',
+        estimatedDelivery: '2024-10-31',
+        trackingSteps: 5,
+        totalSteps: 5
+    },
+    {
+        id: 'PKG-12340',
+        receiverName: 'Emily Davis',
+        receiverPhone: '+880 1234-567895',
+        destination: 'Barisal, Bangladesh',
+        weight: '2.0 kg',
+        status: 'cancelled',
+        statusText: 'Cancelled',
+        date: '2024-10-25',
+        estimatedDelivery: '-',
+        trackingSteps: 1,
+        totalSteps: 5
+    }
+];

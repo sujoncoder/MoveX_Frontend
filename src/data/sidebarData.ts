@@ -1,6 +1,6 @@
 import React from 'react';
 import { LayoutDashboard, Send, Package, History, TrendingUp, Users, Search, PackageOpen } from "lucide-react";
-
+import { getCurrentUser } from '@/utils/auth';
 
 interface IMenuItem {
     name: string;
@@ -8,13 +8,7 @@ interface IMenuItem {
     route: string;
 };
 
-const users = {
-    ADMIN: "admin",
-    SENDER: "sender",
-    RECEIVER: "receiver"
-};
-
-export const role = users.SENDER;
+const { role } = getCurrentUser();
 
 const sidebarLinks: Record<'admin' | 'sender' | 'receiver', IMenuItem[]> = {
     admin: [
