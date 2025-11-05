@@ -6,7 +6,9 @@ export const getCurrentUser = (): IUser => {
         id: 1,
         name: "John Doe",
         email: "john@example.com",
-        role: "receiver" as Role,
+        role: "sender" as Role,
+        address: "123 Main Street, City, Country",
+        phone: "+1 (555) 123-4567",
     };
 };
 

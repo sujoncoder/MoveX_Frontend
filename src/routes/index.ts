@@ -14,7 +14,6 @@ import CommonLayout from "@/components/layout/CommonLayout";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import AllParcels from "@/pages/dashboard/admin/AllParcel";
 import SendParcel from "@/pages/dashboard/sender/SendParcel";
-import ParcelHistory from "@/pages/dashboard/sender/ParcelHistory";
 import DeliveryHistory from "@/pages/dashboard/receiver/DeliveryHistory";
 import ParcelTracking from "@/pages/dashboard/common/ParcelTracking";
 import Logout from "@/pages/dashboard/common/Logout";
@@ -49,7 +48,6 @@ export const router = createBrowserRouter([
             { path: "/dashboard/my-parcels", Component: MyParcels },
             { path: "/dashboard/profile", Component: Profile },
             { path: "/dashboard/send-parcel", Component: SendParcel },
-            { path: "/dashboard/parcel-history", Component: ParcelHistory },
 
             // Receiver Routes
             { path: "/dashboard/my-parcels", Component: MyParcels },

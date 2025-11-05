@@ -5,6 +5,8 @@ export interface IUser {
     name: string;
     email: string;
     role: Role;
+    address?: string;
+    phone?: string;
 };
 
 export interface AuthCredentials {

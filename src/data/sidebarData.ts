@@ -22,7 +22,6 @@ const sidebarLinks: Record<'admin' | 'sender' | 'receiver', IMenuItem[]> = {
         { name: 'Dashboard', icon: LayoutDashboard, route: '/dashboard' },
         { name: 'My Parcel', icon: Package, route: '/dashboard/my-parcels' },
         { name: 'Send Parcel', icon: Send, route: '/dashboard/send-parcel' },
-        { name: 'History', icon: History, route: '/dashboard/parcel-history' },
         { name: 'Track Parcel', icon: Search, route: '/dashboard/track-parcel' },
     ],
     receiver: [
