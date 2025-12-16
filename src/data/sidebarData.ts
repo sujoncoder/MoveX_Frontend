@@ -1,16 +1,16 @@
 import React from 'react';
 import { LayoutDashboard, Send, Package, History, TrendingUp, Users, Search, PackageOpen } from "lucide-react";
-import { getCurrentUser } from '@/utils/auth';
 
-interface IMenuItem {
+
+// SIDEBAR MENU TYPE
+export interface IMenuItem {
     name: string;
     icon: React.ElementType;
     route: string;
 };
 
-const { role } = getCurrentUser();
 
-const sidebarLinks: Record<'admin' | 'sender' | 'receiver', IMenuItem[]> = {
+export const sidebarLinks: Record<'admin' | 'sender' | 'receiver', IMenuItem[]> = {
     admin: [
         { name: 'Dashboard', icon: LayoutDashboard, route: '/dashboard' },
         { name: 'Parcels', icon: PackageOpen, route: '/dashboard/all-parcels' },
@@ -33,13 +33,3 @@ const sidebarLinks: Record<'admin' | 'sender' | 'receiver', IMenuItem[]> = {
 };
 
 export let menuItems: IMenuItem[] = [];
-
-if (role === "admin") {
-    menuItems = sidebarLinks.admin;
-} else if (role === "sender") {
-    menuItems = sidebarLinks.sender;
-} else if (role === "receiver") {
-    menuItems = sidebarLinks.receiver;
-} else {
-    menuItems = [];
-};

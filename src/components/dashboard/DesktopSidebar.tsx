@@ -1,8 +1,23 @@
-import { menuItems } from "@/data/sidebarData";
+import { IMenuItem, sidebarLinks } from "@/data/sidebarData";
+import { useAuth } from "@/hooks/useAuth";
 import { NavLink } from "react-router-dom";
 
 
+// DESKTOP SIDEBAR COMPONENT
 const DesktopSidebar = () => {
+    const currentUser = useAuth();
+    let menuItems: IMenuItem[] = [];
+
+    if (currentUser?.role === "ADMIN") {
+        menuItems = sidebarLinks.admin;
+    } else if (currentUser?.role === "SENDER") {
+        menuItems = sidebarLinks.sender;
+    } else if (currentUser?.role === "RECEIVER") {
+        menuItems = sidebarLinks.receiver;
+    } else {
+        menuItems = [];
+    };
+
     return (
         <div>
             <ul className="space-y-2">

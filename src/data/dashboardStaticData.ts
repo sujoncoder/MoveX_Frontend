@@ -1,6 +1,6 @@
 // ROLE CONFIgURATION FOR DASHBOARD
-export const roleConfig: any = {
-    admin: {
+export const roleConfig = {
+    ADMIN: {
         title: 'Admin Dashboard',
         color: 'blue',
         icon: '👨‍💼',
@@ -17,7 +17,7 @@ export const roleConfig: any = {
             { title: 'Settings', icon: '⚙️', path: '/admin/settings', color: 'bg-gray-500' }
         ]
     },
-    sender: {
+    SENDER: {
         title: 'Sender Dashboard',
         color: 'green',
         icon: '📤',
@@ -34,7 +34,7 @@ export const roleConfig: any = {
             { title: 'Profile', icon: '👤', path: '/sender/profile', color: 'bg-gray-500' }
         ]
     },
-    receiver: {
+    RECEIVER: {
         title: 'Receiver Dashboard',
         color: 'purple',
         icon: '📥',

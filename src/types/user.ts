@@ -1,4 +1,4 @@
-export type Role = 'admin' | 'sender' | 'receiver';
+export type Role = 'ADMIN' | 'SENDER' | 'RECEIVER';
 
 export interface IUser {
     id: number | string;
