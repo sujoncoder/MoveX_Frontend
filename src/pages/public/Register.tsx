@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 
 
-const Register = () => {
+const RegisterPage = () => {
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [phone, setPhone] = useState<string>("");
@@ -141,4 +141,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default RegisterPage;

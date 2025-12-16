@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 import Logo from "@/shared/Logo";
-import Setting from "../dashboard/Setting";
-import DesktopSidebar from "../dashboard/DesktopSidebar";
+import Setting from "./Setting";
+import DesktopSidebar from "./DesktopSidebar";
 
-const DashboardNavbar = () => {
+const DashboardSidebar = () => {
     return (
         <div className="h-full flex flex-col justify-between">
             <div>
@@ -21,4 +21,4 @@ const DashboardNavbar = () => {
     );
 };
 
-export default DashboardNavbar;
+export default DashboardSidebar;

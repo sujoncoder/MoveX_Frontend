@@ -5,7 +5,7 @@ import OurService from "@/components/home/OurService"
 import Services from "@/components/home/Services"
 import Stats from "@/components/home/Stats"
 
-const Home = () => {
+const HomePage = () => {
     return (
         <>
             <Hero />
@@ -16,6 +16,6 @@ const Home = () => {
             <CTA />
         </>
     )
-}
+};
 
-export default Home
+export default HomePage;

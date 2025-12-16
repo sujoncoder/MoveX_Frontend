@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
-import { faqs } from "../../lib/faqData";
+import { faqs } from "../../data/faqData";
 
 
 

@@ -1,5 +1,5 @@
 // ROLE CONFIgURATION FOR DASHBOARD
-export const roleConfig = {
+export const roleConfig: any = {
     admin: {
         title: 'Admin Dashboard',
         color: 'blue',

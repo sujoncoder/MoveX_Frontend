@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, PhoneCall } from "lucide-react";
 
 
 
-const Contact = () => {
+const ContactPage = () => {
     return (
         <section className="w-full px-6 py-16 bg-gray-50">
             <div className="max-w-5xl mx-auto text-center mb-12">
@@ -35,7 +35,7 @@ const Contact = () => {
                 <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col items-center text-center hover:shadow-lg transition">
                     <Mail className="w-10 h-10 text-green-600 mb-4" />
                     <h3 className="font-semibold text-lg text-gray-800 mb-2">Mail</h3>
-                    <p className="text-gray-600 break-words">info@movex.com.bd</p>
+                    <p className="text-gray-600 wrap-break-word">info@movex.com.bd</p>
                 </div>
 
                 {/* Registration */}
@@ -51,5 +51,6 @@ const Contact = () => {
             </div>
         </section>
     );
-}
-export default Contact
+};
+
+export default ContactPage;

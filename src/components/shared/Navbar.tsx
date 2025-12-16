@@ -1,22 +1,36 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import Logo from "../shared/Logo";
-
+import Logo from "@/shared/Logo";
+import { useAuth } from "@/hooks/useAuth";
 
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
+    const { isAuthenticated, role, isLoading } = useAuth();
+    // console.log("Navbar - isAuthenticated:", isAuthenticated, "role:", role);
+    const getDashboardPath = () => {
+        switch (role) {
+            case "sender":
+                return "/dashboard/sender";
+            case "receiver":
+                return "/dashboard/receiver";
+            case "admin":
+                return "/dashboard/admin";
+            default:
+                return "/dashboard";
+        }
+    };
 
     const navItems = [
         { label: "Home", path: "/" },
         { label: "About", path: "/about" },
         { label: "Contact", path: "/contact" },
-        { label: "Parcel Tracking", path: "/tracking" },
-        { label: "Dashboard", path: "/dashboard" },
-        { label: "Login", path: "/login" },
 
+        ...(isAuthenticated
+            ? [{ label: "Dashboard", path: getDashboardPath() }]
+            : [{ label: "Login", path: "/login" }]),
     ];
 
     return (
@@ -30,19 +44,21 @@ const Navbar = () => {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex space-x-6">
-                        {navItems.map((item) => (
-                            <NavLink
-                                key={item.label}
-                                to={item.path}
-                                className={({ isActive }) =>
-                                    `font-semibold transition hover:text-slate-700 ${isActive ? "text-black font-bold" : "text-slate-500"
-                                    }`
-                                }
-                            >
-                                {item.label}
-                            </NavLink>
-
-                        ))}
+                        {!isLoading &&
+                            navItems.map((item) => (
+                                <NavLink
+                                    key={item.label}
+                                    to={item.path}
+                                    className={({ isActive }) =>
+                                        `font-semibold transition hover:text-slate-700 ${isActive
+                                            ? "text-black font-bold"
+                                            : "text-slate-500"
+                                        }`
+                                    }
+                                >
+                                    {item.label}
+                                </NavLink>
+                            ))}
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -58,7 +74,7 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Dropdown */}
-            {isOpen && (
+            {isOpen && !isLoading && (
                 <div className="md:hidden bg-white shadow-lg">
                     <div className="px-4 py-3 space-y-2">
                         {navItems.map((item) => (
@@ -67,7 +83,9 @@ const Navbar = () => {
                                 to={item.path}
                                 onClick={() => setIsOpen(false)}
                                 className={({ isActive }) =>
-                                    `block text-gray-700 hover:text-blue-600 transition ${isActive ? "font-semibold text-blue-600" : ""
+                                    `block text-gray-700 hover:text-blue-600 transition ${isActive
+                                        ? "font-semibold text-blue-600"
+                                        : ""
                                     }`
                                 }
                             >

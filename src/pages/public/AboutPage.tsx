@@ -4,7 +4,7 @@ import Stats from "@/components/home/Stats";
 
 
 
-const About = () => {
+const AboutPage = () => {
     return (
         <section className="w-full px-6 py-16 bg-gray-50 mt-10" >
             <div className="max-w-6xl mx-auto">
@@ -74,4 +74,4 @@ const About = () => {
         </section>
     );
 }
-export default About;
+export default AboutPage;

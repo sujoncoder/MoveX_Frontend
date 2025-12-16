@@ -1,9 +1,9 @@
-import { ourServices } from "../../lib/serviceData";
+import { ourServices } from "../../data/serviceData";
 
 
 const OurService = () => {
     return (
-        <section className="py-16 bg-gradient-to-b from-white to-slate-50">
+        <section className="py-16 bg-linear-to-b from-white to-slate-50">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Title */}
                 <h2 className="text-2xl sm:text-3xl font-bold text-center text-slate-700 mb-12">

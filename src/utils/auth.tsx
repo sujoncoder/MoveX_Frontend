@@ -1,37 +1,13 @@
 import { IUser, Role } from "@/types/user";
 
-
+// GET CURRENT USER
 export const getCurrentUser = (): IUser => {
     return {
         id: 1,
         name: "John Doe",
         email: "john@example.com",
-        role: "sender" as Role,
-        address: "123 Main Street, City, Country",
-        phone: "+1 (555) 123-4567",
+        role: "receiver" as Role,
+        address: "Bangladesh Magura sadar",
+        phone: "01999999999",
     };
 };
-
-// TODO: Implement these functions when you add authentication
-// export const useAuth = () => {
-//     // const [user, setUser] = useState(null);
-//     // const [loading, setLoading] = useState(true);
-//     // return { user, setUser, loading };
-//     return {
-//         user: getCurrentUser(),
-//         loading: false,
-//         login: (credentials) =>
-//         logout: () => {/* implement logout */ },
-//         register: (userData) =>
-//     };
-// };
-
-// export const ProtectedRoute = ({ children, allowedRoles }) => {
-//     const user = getCurrentUser();
-
-//     if (!allowedRoles.includes(user?.role)) {
-//         return <Navigate to="/login" />;
-//     }
-
-//     return children;
-// };

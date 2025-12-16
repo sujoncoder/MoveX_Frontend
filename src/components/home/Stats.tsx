@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { stats } from "../../lib/statsData";
+import { stats } from "../../data/statsData";
 
 
 
@@ -37,7 +37,7 @@ const colors = [
 
 const Stats = () => {
     return (
-        <section className="py-20 bg-gradient-to-r from-slate-50 to-white">
+        <section className="py-20 bg-linear-to-r from-slate-50 to-white">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
                     {stats.map((stat, idx) => {
@@ -55,12 +55,12 @@ const Stats = () => {
                             >
                                 {/* Background Gradient Overlay */}
                                 <div
-                                    className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${gradient} opacity-20`}
+                                    className={`absolute inset-0 rounded-2xl bg-linear-to-br ${gradient} opacity-20`}
                                 />
 
                                 {/* Icon */}
                                 <div
-                                    className={`relative p-4 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center text-white shadow-md`}
+                                    className={`relative p-4 rounded-full bg-linear-to-br ${gradient} flex items-center justify-center text-white shadow-md`}
                                 >
                                     {stat.icon}
                                 </div>
@@ -68,7 +68,7 @@ const Stats = () => {
                                 {/* Number */}
                                 <h3 className="relative text-3xl font-extrabold text-slate-900">
                                     {count.toLocaleString()}
-                                    <span className="ml-1 text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-500">
+                                    <span className="ml-1 text-transparent bg-clip-text bg-linear-to-r from-emerald-500 to-teal-500">
                                         {stat.suffix}
                                     </span>
                                 </h3>

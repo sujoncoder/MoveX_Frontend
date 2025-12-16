@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { services } from "../../lib/serviceData";
+import { services } from "../../data/serviceData";
 
 
 
-const Services = () => {
+const ServicesPage = () => {
     return (
-        <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
+        <section className="py-20 bg-linear-to-b from-slate-50 to-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-3xl font-bold text-center mb-14 text-slate-900 tracking-tight">
                     Why you should choose <span className="text-indigo-600">MoveX?</span>
@@ -19,10 +19,10 @@ const Services = () => {
                             className="relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl border border-slate-100 group overflow-hidden"
                         >
                             {/* Gradient border effect */}
-                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-200 via-pink-100 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none" />
+                            <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-indigo-200 via-pink-100 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none" />
 
                             {/* Icon */}
-                            <div className="relative z-10 bg-gradient-to-tr from-indigo-50 to-white p-4 rounded-xl shadow-sm w-fit">
+                            <div className="relative z-10 bg-linear-to-tr from-indigo-50 to-white p-4 rounded-xl shadow-sm w-fit">
                                 {service.icon}
                             </div>
 
@@ -43,4 +43,4 @@ const Services = () => {
     );
 };
 
-export default Services;
+export default ServicesPage;

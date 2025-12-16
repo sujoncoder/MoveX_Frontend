@@ -1,15 +1,15 @@
 import { Outlet } from 'react-router';
-import DashboardHeaderLayout from './DashboardHeaderLayout';
-import DashboardNavbar from './DashboardNavbar';
-import MobileNavbar from '../dashboard/MobileNavbar';
+import MobileNavbar from '../components/dashboard/MobileNavbar';
+import DashboardHeaderLayout from '@/components/dashboard/DashboardHeaderLayout';
+import DashboardSidebar from '@/components/dashboard/DashboardSidebar';
 
 
+// DASHBOARD LAYOUT COMPONENT
 const DashboardLayout = () => {
     return (
         <div className="h-screen md:p-5 flex bg-black/10">
-
             <aside className="hidden md:block p-5 w-[250px] bg-white/80 rounded-xl">
-                <DashboardNavbar />
+                <DashboardSidebar />
                 <MobileNavbar />
             </aside>
 

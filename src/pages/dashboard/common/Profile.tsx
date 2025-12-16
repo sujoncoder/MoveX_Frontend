@@ -32,8 +32,6 @@ const Profile = () => {
     };
 
     const handleSave = () => {
-        // TODO: Implement save logic (API call)
-        console.log('Saving user:', user);
         setIsEditing(false);
     };
 

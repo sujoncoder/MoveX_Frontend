@@ -6,7 +6,6 @@ import packing from "../assets/icons/packeging.svg";
 import warehouse from "../assets/icons/warehouse.svg";
 
 
-
 export const services = [
     {
         icon: <Truck className="h-8 w-8 text-green-500" />,

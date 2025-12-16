@@ -1,36 +1,33 @@
 import { createBrowserRouter } from "react-router";
-
 import Dashboard from "@/pages/dashboard/Dashboard";
 import Analytics from "@/pages/dashboard/admin/Analytics";
 import UserManagement from "@/pages/dashboard/admin/users";
 import MyParcels from "@/pages/dashboard/sender/MyParcel";
-import Home from "@/pages/public/Home";
-import About from "@/pages/public/About";
-import Contact from "@/pages/public/Contact";
-import Tracking from "@/pages/public/Tracking";
-import LoginForm from "@/pages/public/Login";
-import Register from "@/pages/public/Register";
-import CommonLayout from "@/components/layout/CommonLayout";
-import DashboardLayout from "@/components/layout/DashboardLayout";
 import AllParcels from "@/pages/dashboard/admin/AllParcel";
 import SendParcel from "@/pages/dashboard/sender/SendParcel";
 import DeliveryHistory from "@/pages/dashboard/receiver/DeliveryHistory";
 import ParcelTracking from "@/pages/dashboard/common/ParcelTracking";
 import Logout from "@/pages/dashboard/common/Logout";
 import Profile from "@/pages/dashboard/common/Profile";
+import PublicLayout from "@/layout/PublicLayout";
+import DashboardLayout from "@/layout/DashboardLayout";
+import HomePage from "@/pages/public/HomePage";
+import AboutPage from "@/pages/public/AboutPage";
+import ContactPage from "@/pages/public/ContactPage";
+import LoginPage from "@/pages/public/LoginPage";
+import RegisterPage from "@/pages/public/Register";
 
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        Component: CommonLayout,
+        Component: PublicLayout,
         children: [
-            { path: "/", Component: Home },
-            { path: "/about", Component: About },
-            { path: "/contact", Component: Contact },
-            { path: "/tracking", Component: Tracking },
-            { path: "/login", Component: LoginForm },
-            { path: "/register", Component: Register },
+            { path: "/", Component: HomePage },
+            { path: "/about", Component: AboutPage },
+            { path: "/contact", Component: ContactPage },
+            { path: "/login", Component: LoginPage },
+            { path: "/register", Component: RegisterPage },
         ]
     },
     {
